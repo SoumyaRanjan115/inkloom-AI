@@ -108,26 +108,27 @@ The demo is a **single-page React app with no server**. The whole product, inclu
 
 ```mermaid
 flowchart TB
-  subgraph Browser["Your browser: React single-page app, no server"]
+  VER["Vercel<br/>static hosting"]
+  subgraph App["Browser: React single-page app, no server"]
     UI["UI pages<br/>Overview · Content editor · Knowledge base<br/>Insights · Audit log · Team"]
     API["api.js<br/>the only call surface the UI uses"]
     BE["backend.js: the in-browser API<br/>roles · visibility · workflow · notifications · audit"]
-    subgraph Engine["Check engine (src/lib)"]
-      DET["engine.js<br/>deterministic rules<br/>glossary · tone · WCAG contrast · alt text"]
-      RET["retrieval.js<br/>claim-first TF-IDF retrieval"]
-      ORC["check.js<br/>orchestrator · evidence gate<br/>verification pass"]
-    end
     DB[("db.js<br/>localStorage<br/>seeded Northwind workspace")]
   end
+  subgraph Engine["Check engine (src/lib)"]
+    ORC["check.js<br/>orchestrator · evidence gate<br/>verification pass"]
+    DET["engine.js<br/>deterministic rules<br/>glossary · tone · WCAG contrast · alt text"]
+    RET["retrieval.js<br/>claim-first TF-IDF retrieval"]
+  end
   GEM["Google Gemini API<br/>optional · key stays in the browser"]
-  VER["Vercel<br/>static hosting"]
-  UI --> API --> BE
+  VER -. "serves the app" .-> UI
+  UI --> API
+  API --> BE
+  BE --> DB
   BE --> ORC
   ORC --> DET
   ORC --> RET
   ORC -. "optional" .-> GEM
-  BE --> DB
-  VER -. "serves" .-> Browser
   classDef ui fill:#dbeafe,stroke:#2563eb,color:#111
   classDef core fill:#ede9fe,stroke:#7c3aed,color:#111
   classDef data fill:#fef3c7,stroke:#d97706,color:#111
