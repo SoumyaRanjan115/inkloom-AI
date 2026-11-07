@@ -4,7 +4,7 @@
 
 *CODENEXUS Hackathon · Round 2 · Team MASTERCODERS*
 
-**Live demo:** `<add your Vercel link here>` · No sign-up: pick a role and explore.
+**Live demo:** [`https://inkloom-ai-iota.vercel.app/`](https://inkloom-ai-iota.vercel.app/) · No sign-up: pick a role and explore.
 
 | 🔎 Check types | 👥 Roles | 📎 Findings with a citation | 🧪 Automated tests | 🚫 Auto-publishes |
 |:-:|:-:|:-:|:-:|:-:|
