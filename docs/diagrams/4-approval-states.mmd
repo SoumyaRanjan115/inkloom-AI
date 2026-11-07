@@ -1,0 +1,16 @@
+stateDiagram-v2
+  direction LR
+  state "Draft" as Draft
+  state "Brand review" as Brand
+  state "Compliance review" as Comp
+  state "Approved" as Approved
+  state "Published" as Published
+  [*] --> Draft
+  Draft --> Brand: Submit (every finding resolved)
+  Brand --> Draft: Send back with reason
+  Brand --> Comp: Approve, claim involved
+  Brand --> Approved: Approve, no claim
+  Comp --> Draft: Send back with reason
+  Comp --> Approved: Approve with comment
+  Approved --> Published: Creator publishes
+  Published --> [*]

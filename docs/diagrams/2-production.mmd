@@ -1,0 +1,11 @@
+flowchart LR
+  R["React + Vite<br/>(same UI)"] --> X["Express API<br/>JWT · roles · zod validation"]
+  X --> M[("MongoDB<br/>org-scoped records")]
+  X --> L["LLM provider<br/>Gemini or any other"]
+  X --> U["Uploads<br/>PDF · DOCX · images"]
+  classDef a fill:#dbeafe,stroke:#2563eb,color:#111
+  classDef b fill:#ede9fe,stroke:#7c3aed,color:#111
+  classDef c fill:#fef3c7,stroke:#d97706,color:#111
+  class R a
+  class X,L b
+  class M,U c

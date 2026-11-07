@@ -1,0 +1,24 @@
+flowchart LR
+  subgraph Brand["Brand Manager owns"]
+    R["Guideline rules"]
+    G["Glossary"]
+    S["Voice and palette settings"]
+  end
+  subgraph Comp["Compliance Reviewer owns"]
+    C["Claim library"]
+    F["Fact base with expiry dates"]
+  end
+  subgraph Cre["Content Creator owns"]
+    D["Drafts"]
+  end
+  D -->|"checked against"| R
+  D -->|"checked against"| G
+  D -->|"checked against"| S
+  D -->|"checked against"| C
+  D -->|"checked against"| F
+  classDef b fill:#dbeafe,stroke:#2563eb,color:#111
+  classDef c fill:#fef3c7,stroke:#d97706,color:#111
+  classDef d fill:#dcfce7,stroke:#16a34a,color:#111
+  class R,G,S b
+  class C,F c
+  class D d

@@ -1,0 +1,16 @@
+sequenceDiagram
+  autonumber
+  actor M as Maya (Creator)
+  participant I as Inkloom
+  actor P as Priya (Brand Manager)
+  actor A as Arjun (Compliance)
+  M->>I: Paste draft and image, run policy check
+  I-->>M: 7 cited findings with suggested fixes
+  M->>I: Accept, edit or dispute each, then submit
+  I-->>P: Notification: new submission
+  P->>I: Review the citations, approve with a comment
+  I-->>A: A claim is involved, so route to compliance
+  A->>I: Check the evidence records, approve with a comment
+  I-->>M: Approved, ready to publish
+  M->>I: Publish
+  Note over I: Versions, reviewer comments, AI-use record and audit trail are stored at every step

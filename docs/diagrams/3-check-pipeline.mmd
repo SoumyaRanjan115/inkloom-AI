@@ -1,0 +1,21 @@
+flowchart LR
+  A["Content<br/>text + image + colours"] --> B["Split into sentences<br/>and claim candidates"]
+  A --> C["Deterministic rules<br/>exact, never guessed"]
+  B --> D["Retrieve evidence<br/>claims · facts · rules"]
+  D --> E{"AI key set?"}
+  E -- yes --> F["Evidence-bound AI judge<br/>may only cite retrieved evidence"]
+  E -- no --> G["Rule-based claim matcher"]
+  F --> H["Evidence gate<br/>exact quote · cited source<br/>numbers only from evidence"]
+  H --> I["Verification pass<br/>second, narrower AI check"]
+  C --> J["Findings"]
+  G --> J
+  I --> J
+  J --> K["Every finding carries<br/>severity · reason · citation · minimal fix"]
+  classDef in fill:#dbeafe,stroke:#2563eb,color:#111
+  classDef code fill:#ccfbf1,stroke:#0d9488,color:#111
+  classDef ai fill:#ede9fe,stroke:#7c3aed,color:#111
+  classDef out fill:#dcfce7,stroke:#16a34a,color:#111
+  class A,B,D in
+  class C,G code
+  class F,H,I ai
+  class J,K out

@@ -1,0 +1,29 @@
+erDiagram
+  USER ||--o{ CONTENT : writes
+  USER ||--o{ NOTIFICATION : receives
+  CONTENT ||--o{ VERSION : "snapshot on submit"
+  CONTENT ||--o{ FINDING : has
+  CONTENT ||--o{ REVIEW : receives
+  CONTENT ||--o{ AUDIT_EVENT : logs
+  RULE ||--o{ FINDING : "cited by"
+  GLOSSARY_TERM ||--o{ FINDING : "cited by"
+  FACT ||--o{ FINDING : "cited by"
+  CLAIM ||--o{ FINDING : "cited by"
+  FINDING {
+    string category
+    string severity
+    string quote
+    json citation
+    json fix
+    string status
+  }
+  FACT {
+    string statement
+    string owner
+    date expiresAt
+  }
+  CLAIM {
+    string statement
+    string evidence
+    date expiresAt
+  }
